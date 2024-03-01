@@ -26,7 +26,8 @@
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
             const numParam = urlParams.get(''); // No parameter name provided, just get the first parameter
-            const num = parseInt(numParam, 10);
+            const numb = parseInt(numParam, 10);
+            const num = 12345;
 
             if (!isNaN(num)) {
                 let primeCount = 0;
