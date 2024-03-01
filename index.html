@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Numbers</title>
+</head>
+<body>
+    <h4>iman_ahmad</h4>
+
+    <script>
+        function isPrime(num) {
+            if (num <= 1) return false;
+            if (num <= 3) return true;
+
+            if (num % 2 === 0 || num % 3 === 0) return false;
+
+            for (let i = 5; i * i <= num; i += 6) {
+                if (num % i === 0 || num % (i + 2) === 0) return false;
+            }
+
+            return true;
+        }
+
+        window.onload = function () {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const numParam = urlParams.get(''); // No parameter name provided, just get the first parameter
+            const num = parseInt(numParam, 10);
+
+            if (!isNaN(num)) {
+                let primeCount = 0;
+                for (let i = 2; i <= num; i++) {
+                    if (isPrime(i)) {
+                        primeCount++;
+                    }
+                }
+                document.title = `Number of prime numbers between 2 and ${num}: ${primeCount}`;
+            } else {
+                console.error('Error: Invalid value for N');
+                document.title = 'Error';
+            }
+        };
+    </script>
+</body>
+</html>
