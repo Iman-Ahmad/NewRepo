@@ -36,7 +36,10 @@
                         primeCount++;
                     }
                 }
-                document.title = `Number of prime numbers between 2 and ${num}: ${primeCount}`;
+                const resultContainer = document.createElement('div');
+                resultContainer.textContent = `Number of prime numbers between 2 and ${num}: ${primeCount}`;
+                document.body.appendChild(resultContainer);
+
             } else {
                 console.error('Error: Invalid value for N');
                 document.title = 'Error';
